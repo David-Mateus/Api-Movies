@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -22,6 +23,10 @@ public class MoviesService {
                 "Tarefa não encontrada"
         ));
     }
+//    public List<MoviesModel> findAllById(Long userId){
+//        List<MoviesModel> movies = this.moviesRepository.findById(userId);
+//        return movies;
+//    }
     @Transactional
     public MoviesModel create(MoviesModel obj){
         UserModel user = this.userService.findyById(obj.getUser().getId());
