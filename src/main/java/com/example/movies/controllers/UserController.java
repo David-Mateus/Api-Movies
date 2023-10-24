@@ -26,9 +26,10 @@ public class UserController {
         UserModel obj = this.userService.findyById(id);
         return ResponseEntity.ok().body(obj);
     }
+
     @PostMapping
     @Validated
-    public ResponseEntity<Void> create(@Valid @RequestBody UserModel obj){
+    public ResponseEntity<String> create(@Valid @RequestBody UserModel obj){
         this.userService.create(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(obj.getId()).toUri();

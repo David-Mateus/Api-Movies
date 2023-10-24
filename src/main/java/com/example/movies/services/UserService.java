@@ -19,7 +19,6 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-
     public UserModel findyById(Long id){
         Optional<UserModel> user = userRepository.findById(id);
         return user.orElseThrow(() -> new RuntimeException(
