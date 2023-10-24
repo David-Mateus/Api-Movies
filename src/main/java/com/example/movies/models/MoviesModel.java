@@ -1,5 +1,6 @@
 package com.example.movies.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,7 @@ public class MoviesModel {
     // cria relação entre as tabelas
     @ManyToOne
     @JoinColumn(name = "user_id")
+
     private UserModel user;
 
     private String image;

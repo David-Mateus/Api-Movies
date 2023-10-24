@@ -1,5 +1,6 @@
 package com.example.movies.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class UserModel {
     private String password;
 
     @OneToMany(mappedBy = "user")
+    @JsonBackReference
     private List<MoviesModel> movies = new ArrayList<MoviesModel>();
 
     public List<MoviesModel> getMovies() {
