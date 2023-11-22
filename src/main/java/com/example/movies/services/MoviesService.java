@@ -23,10 +23,10 @@ public class MoviesService {
                 "Tarefa não encontrada"
         ));
     }
-//    public List<MoviesModel> findAllById(Long userId){
-//        List<MoviesModel> movies = this.moviesRepository.findById(userId);
-//        return movies;
-//    }
+    public List<MoviesModel> findAllById(Long userId){
+        List<MoviesModel> movies = this.moviesRepository.findByUser_Id(userId);
+        return movies;
+    }
     @Transactional
     public MoviesModel create(MoviesModel obj){
         UserModel user = this.userService.findyById(obj.getUser().getId());

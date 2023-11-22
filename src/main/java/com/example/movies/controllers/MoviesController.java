@@ -2,6 +2,7 @@ package com.example.movies.controllers;
 
 import com.example.movies.models.MoviesModel;
 import com.example.movies.services.MoviesService;
+import com.example.movies.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +19,19 @@ import java.util.List;
 public class MoviesController {
     @Autowired
     private MoviesService moviesService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/{id}")
     public ResponseEntity<MoviesModel> findById(@PathVariable Long id){
         MoviesModel obj = this.moviesService.findById(id);
         return ResponseEntity.ok(obj);
+    }
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<MoviesModel>> findAllByUserId(@PathVariable Long userId){
+        userService.findyById(userId);
+        List<MoviesModel> obj = this.moviesService.findAllById(userId);
+        return ResponseEntity.ok().body(obj);
     }
 
     @PostMapping
