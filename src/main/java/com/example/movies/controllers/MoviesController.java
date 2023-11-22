@@ -29,7 +29,7 @@ public class MoviesController {
     }
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<MoviesModel>> findAllByUserId(@PathVariable Long userId){
-        userService.findyById(userId);
+        this.userService.findyById(userId);
         List<MoviesModel> obj = this.moviesService.findAllById(userId);
         return ResponseEntity.ok().body(obj);
     }
